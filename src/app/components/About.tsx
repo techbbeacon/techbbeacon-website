@@ -5,7 +5,7 @@ import EmojiPeopleOutlinedIcon from "@mui/icons-material/EmojiPeopleOutlined";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
 import TrackChangesOutlinedIcon from "@mui/icons-material/TrackChangesOutlined";
 import { motion } from "framer-motion";
-import Grid from "@mui/material/Unstable_Grid2"; // ✅
+import Grid from "@mui/material/Grid"; // ✅ v2 Grid
 
 export default function AboutSection() {
   return (
