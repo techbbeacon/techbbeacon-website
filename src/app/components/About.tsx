@@ -82,31 +82,7 @@ export default function AboutSection() {
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <Paper
-                sx={{
-                  p: 4,
-                  borderRadius: "12px",
-                  backgroundColor: "#f9fbfd",
-                  border: "1px solid rgba(0, 0, 0, 0.2)",
-                }}
-              >
-                <Typography variant="h4" fontWeight={700} gutterBottom>
-                  What Makes Us <span style={{ color: "#07bddf" }}>Different?</span>
-                </Typography>
-
-                {[
-                  "5+ years of industry experience with proven results",
-                  "Expert team of certified developers and consultants",
-                  "Agile development methodology for faster delivery",
-                  "Complete transparency in pricing and project progress",
-                  "24/7 support and maintenance services included",
-                  "Latest technology stack and industry best practices",
-                ].map((point, i) => (
-                  <Typography key={i} variant="body1" sx={{ mb: 1 }}>
-                    ✓ {point}
-                  </Typography>
-                ))}
-              </Paper>
+              <Paper sx={{ p: 4, borderRadius: "12px", backgroundColor: "#f9fbfd", border: "1px solid rgba(0, 0, 0, 0.2)", marginTop: { xs: "-10rem", sm: "-10rem", md: "-10rem", lg: "-30rem" }, marginLeft: { lg: "45rem" } }} > <Typography variant="h4" fontWeight={700}> What Makes Us <span style={{ color: "#07bddf" }}>Different?</span> </Typography> <Typography variant="body1" sx={{ mb: 1 }}> ✓ 5+ years of industry experience with proven results </Typography> <Typography variant="body1" sx={{ mb: 1 }}> ✓ Expert team of certified developers and consultants </Typography> <Typography variant="body1" sx={{ mb: 1 }}> ✓ Agile development methodology for faster delivery </Typography> <Typography variant="body1" sx={{ mb: 1 }}> ✓ Complete transparency in pricing and project progress </Typography> <Typography variant="body1" sx={{ mb: 1 }}> ✓ 24/7 support and maintenance services included </Typography> <Typography variant="body2" sx={{ mb: 1 }}> ✓ Latest technology stack and industry best practices </Typography> </Paper>
             </motion.div>
           </Grid>
         </Grid>

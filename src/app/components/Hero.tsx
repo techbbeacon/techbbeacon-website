@@ -3,7 +3,6 @@
 import React from "react";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 import { motion } from "framer-motion";
-import Link from "next/link";
 
 const HeroSection = () => {
   return (
