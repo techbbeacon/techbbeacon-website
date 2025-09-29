@@ -101,7 +101,6 @@ export default function AboutSection() {
           >
             <Grid >
               <Paper
-                elevation={0}
                 sx={{
                   p: 4, borderRadius: "12px", backgroundColor: "#f9fbfd", border: "1px solid rgba(0, 0, 0, 0.2)", marginTop: {
                     xs: "-10rem",  // small screens
