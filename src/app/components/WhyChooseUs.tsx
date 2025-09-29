@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, ReactNode } from "react";
 import {
   Box,
   Container,
@@ -17,8 +17,25 @@ import GroupIcon from "@mui/icons-material/Group";
 import GppGoodOutlinedIcon from "@mui/icons-material/GppGoodOutlined";
 import { motion } from "framer-motion";
 
+interface StatsCardProps {
+  icon: ReactNode;
+  value: number;
+  suffix?: string;
+  title: string;
+  subtitle?: string;
+  iconBg?: string;
+  iconColor?: string;
+}
+
 // ✅ Reusable StatsCard with animation
-const StatsCard = ({ icon, value, suffix, title, subtitle, iconBg, iconColor }) => (
+const StatsCard: React.FC<StatsCardProps> = ({
+  icon,
+  value,
+  suffix,
+  title,
+  subtitle,
+  iconBg,
+}) => (
   <motion.div
     initial={{ opacity: 0, y: 30 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -57,9 +74,7 @@ const StatsCard = ({ icon, value, suffix, title, subtitle, iconBg, iconColor }) 
             justifyContent: "center",
           }}
         >
-          {React.cloneElement(icon, {
-            sx: { color: iconColor || "#056bd1", fontSize: "2rem" },
-          })}
+          {icon}
         </Box>
         <Typography variant="h4" fontWeight={700} color="primary">
           {value}
@@ -87,19 +102,31 @@ export default function WhyChooseUs() {
   const [clientsCount, setClientsCount] = useState(0);
 
   const reasons = [
-    { icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#3688da" }} />, text: "Tailor-made solutions" },
-    { icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#06c3e0" }} />, text: "Affordable & transparent pricing" },
-    { icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#3688da" }} />, text: "End-to-end support (Dev + Hosting + AMC)" },
-    { icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#06c3e0" }} />, text: "Scalable for long-term growth" },
+    {
+      icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#3688da" }} />,
+      text: "Tailor-made solutions",
+    },
+    {
+      icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#06c3e0" }} />,
+      text: "Affordable & transparent pricing",
+    },
+    {
+      icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#3688da" }} />,
+      text: "End-to-end support (Dev + Hosting + AMC)",
+    },
+    {
+      icon: <CheckCircleOutlineOutlinedIcon sx={{ color: "#06c3e0" }} />,
+      text: "Scalable for long-term growth",
+    },
   ];
 
   // ✅ Smooth counter animation
   useEffect(() => {
-    const animateCounter = (target, setter) => {
+    const animateCounter = (target: number, setter: React.Dispatch<React.SetStateAction<number>>) => {
       const duration = 2000;
       const startTime = performance.now();
 
-      const update = (currentTime) => {
+      const update = (currentTime: number) => {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
         const value = Math.floor(progress * target);
@@ -198,7 +225,6 @@ export default function WhyChooseUs() {
                   title="Projects Delivered"
                   subtitle={"Successfully completed across\nindustries"}
                   iconBg="#e4eef9"
-                  iconColor="#056bd1"
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -209,7 +235,6 @@ export default function WhyChooseUs() {
                   title="Clients Served"
                   subtitle={"Happy clients across all India"}
                   iconBg="#e4f6fa"
-                  iconColor="#06c3e0"
                 />
               </Grid>
             </Grid>
