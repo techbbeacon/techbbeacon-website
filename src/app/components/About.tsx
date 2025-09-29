@@ -10,9 +10,9 @@ export default function AboutSection() {
   return (
     <Box sx={{ py: 10, backgroundColor: "#fff" }}>
       <Container maxWidth="lg">
-        <Grid container spacing={8} aligns="flex-start">
+        <Grid container spacing={8} alignItems="flex-start">
           {/* LEFT SIDE */}
-          <Grid  xs={12} md={7}>
+          <Grid xs={12} md={7}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -48,7 +48,7 @@ export default function AboutSection() {
             </motion.div>
 
             <Grid container spacing={4}>
-              <Grid  xs={12} sm={4} textAlign="center">
+              <Grid xs={12} sm={4} textAlign="center">
                 <TrackChangesOutlinedIcon sx={{ fontSize: 40, color: "#0871da" }} />
                 <Typography variant="h6" fontWeight={600}>Mission-Driven</Typography>
                 <Typography color="text.secondary" fontSize="0.8rem">
@@ -56,7 +56,7 @@ export default function AboutSection() {
                 </Typography>
               </Grid>
 
-              <Grid  xs={12} sm={4} textAlign="center">
+              <Grid xs={12} sm={4} textAlign="center">
                 <EmojiPeopleOutlinedIcon sx={{ fontSize: 40, color: "#0871da" }} />
                 <Typography variant="h6" fontWeight={600}>Client-Centric</Typography>
                 <Typography color="text.secondary" fontSize="0.8rem">
@@ -64,7 +64,7 @@ export default function AboutSection() {
                 </Typography>
               </Grid>
 
-              <Grid  xs={12} sm={4} textAlign="center">
+              <Grid xs={12} sm={4} textAlign="center">
                 <LightbulbOutlinedIcon sx={{ fontSize: 40, color: "#0871da" }} />
                 <Typography variant="h6" fontWeight={600}>Innovation First</Typography>
                 <Typography color="text.secondary" fontSize="0.8rem">
@@ -75,7 +75,7 @@ export default function AboutSection() {
           </Grid>
 
           {/* RIGHT SIDE */}
-          <Grid  xs={12} md={5}>
+          <Grid xs={12} md={5}>
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -95,7 +95,7 @@ export default function AboutSection() {
             { value: "45+", label: "Happy Clients", color: "#056bd1" },
             { value: "100%", label: "Client Satisfaction", color: "#06c3e0" },
           ].map((stat, i) => (
-            <Grid  xs={6} sm={3} key={i}>
+            <Grid xs={6} sm={3} key={i}>
               <Typography variant="h4" fontWeight="bold" color={stat.color}>
                 {stat.value}
               </Typography>
