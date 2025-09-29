@@ -93,7 +93,7 @@ export default function Contact() {
                   Quick Connect
                 </Button>
               ),
-              subtitle: "Chat directly with our team",
+              subtitle: "----------- Get instant responses to your queries. Chat with our team directly on WhatsApp. -----------",
             },
             {
               icon: <LocationOnIcon fontSize="large" sx={{ color: "#0871da" }} />,
