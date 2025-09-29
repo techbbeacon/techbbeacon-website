@@ -7,8 +7,8 @@ import {
   TextField,
   Typography,
   Paper,
-  Grid, // ✅ classic Grid
 } from "@mui/material";
+import Grid from "@mui/material/Grid"; // ✅ correct import
 import { motion } from "framer-motion";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
@@ -49,7 +49,7 @@ export default function Contact() {
           </Typography>
         </motion.div>
 
-        {/* Top Info Cards */}
+        {/* Info Cards */}
         <Grid container spacing={4} mb={6}>
           {[
             {
@@ -71,11 +71,11 @@ export default function Contact() {
                   hello@techbbeacon.com
                 </Typography>
               ),
-              subtitle: "---------- We’ll respond within 24 hours ----------",
+              subtitle: "We’ll respond within 24 hours",
             },
             {
               icon: <WhatsAppIcon fontSize="large" sx={{ color: "#06c3e0" }} />,
-              title: "Quick Connect on WhatsApp",
+              title: "WhatsApp",
               value: (
                 <Button
                   component="a"
@@ -87,13 +87,13 @@ export default function Contact() {
                   sx={{
                     backgroundColor: "#25D366",
                     "&:hover": { backgroundColor: "#1ebe57" },
-                    mt: 0,
+                    mt: 2,
                   }}
                 >
-                  Quick Connect on WhatsApp
+                  Quick Connect
                 </Button>
               ),
-              subtitle: "--------------- Get instant responses. Chat with our team directly. ---------------",
+              subtitle: "Chat directly with our team",
             },
             {
               icon: <LocationOnIcon fontSize="large" sx={{ color: "#0871da" }} />,
@@ -114,10 +114,10 @@ export default function Contact() {
                   Pune, Maharashtra
                 </Typography>
               ),
-              subtitle: "---------- IT Hub of India ----------",
+              subtitle: "IT Hub of India",
             },
           ].map((item, i) => (
-            <Grid item xs={12} sm={6} md={4} key={i}>
+            <Grid xs={12} sm={6} md={4} key={i}>
               <Paper
                 elevation={3}
                 sx={{
@@ -173,22 +173,22 @@ export default function Contact() {
             </Typography>
 
             <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
+              <Grid xs={12} sm={6}>
                 <TextField label="Name" fullWidth required variant="outlined" />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid xs={12} sm={6}>
                 <TextField label="Email" type="email" fullWidth required variant="outlined" />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid xs={12} sm={6}>
                 <TextField label="Phone" fullWidth required variant="outlined" />
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Company Name" fullWidth variant="outlined" />
+              <Grid xs={12} sm={6}>
+                <TextField label="Company" fullWidth variant="outlined" />
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12}>
                 <TextField label="Project Details" multiline rows={4} fullWidth variant="outlined" />
               </Grid>
-              <Grid item xs={12}>
+              <Grid xs={12}>
                 <Button
                   variant="contained"
                   size="large"
