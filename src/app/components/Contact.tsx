@@ -79,18 +79,21 @@ export default function Contact() {
               title: "Quick Connect on WhatsApp",
               value: (
                 <Button
+                  // component="a"
+                  // href="https://api.whatsapp.com/send?phone=918796889625&text=Hi%20Techbbeacon%20Team,%20I%20want%20to%20discuss%20a%20new%20project."
+                  // target="_blank"
+                  rel="noopener noreferrer"
                   variant="contained"
                   startIcon={<WhatsAppIcon />}
-                  // href="https://api.whatsapp.com/send?phone=918796889625&text=Hi%20Techbbeacon%20Team,%20I%20want%20to%20discuss%20a%20new%20project."
-                  target="_blank"
                   sx={{
                     backgroundColor: "#25D366",
                     "&:hover": { backgroundColor: "#1ebe57" },
-                    mt: 1,
+                    mt: 2,
                   }}
                 >
-                  Chat on WhatsApp
+                  Quick Connect on WhatsApp
                 </Button>
+
               ),
               subtitle:
                 " ----------- Get instant responses to your queries. Chat with our team directly on WhatsApp. ----------- ",
