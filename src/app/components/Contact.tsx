@@ -4,16 +4,15 @@ import {
   Box,
   Button,
   Container,
-  Grid,
   TextField,
   Typography,
   Paper,
+  Grid, // ✅ classic Grid
 } from "@mui/material";
 import { motion } from "framer-motion";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
-import Link from "next/link";
 
 export default function Contact() {
   return (
@@ -26,7 +25,7 @@ export default function Contact() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <Typography variant="h3" fontWeight={700} align="center" >
+          <Typography variant="h3" fontWeight={700} align="center">
             Get In{" "}
             <Box
               component="span"
@@ -59,7 +58,7 @@ export default function Contact() {
               value: (
                 <Typography
                   component="a"
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@techbbeacon.com"
+                  href="mailto:hello@techbbeacon.com"
                   target="_blank"
                   rel="noopener noreferrer"
                   sx={{
@@ -72,31 +71,29 @@ export default function Contact() {
                   hello@techbbeacon.com
                 </Typography>
               ),
-              subtitle: "We’ll respond within 24 hours",
+              subtitle: "---------- We’ll respond within 24 hours ----------",
             },
             {
               icon: <WhatsAppIcon fontSize="large" sx={{ color: "#06c3e0" }} />,
               title: "Quick Connect on WhatsApp",
               value: (
                 <Button
-                  // component="a"
-                  // href="https://api.whatsapp.com/send?phone=918796889625&text=Hi%20Techbbeacon%20Team,%20I%20want%20to%20discuss%20a%20new%20project."
-                  // target="_blank"
+                  component="a"
+                  href="https://api.whatsapp.com/send?phone=91XXXXXXXXXX&text=Hi%20Techbbeacon%20Team,%20I%20want%20to%20discuss%20a%20new%20project."
+                  target="_blank"
                   rel="noopener noreferrer"
                   variant="contained"
                   startIcon={<WhatsAppIcon />}
                   sx={{
                     backgroundColor: "#25D366",
                     "&:hover": { backgroundColor: "#1ebe57" },
-                    mt: 2,
+                    mt: 0,
                   }}
                 >
                   Quick Connect on WhatsApp
                 </Button>
-
               ),
-              subtitle:
-                " ----------- Get instant responses to your queries. Chat with our team directly on WhatsApp. ----------- ",
+              subtitle: "--------------- Get instant responses. Chat with our team directly. ---------------",
             },
             {
               icon: <LocationOnIcon fontSize="large" sx={{ color: "#0871da" }} />,
@@ -117,10 +114,10 @@ export default function Contact() {
                   Pune, Maharashtra
                 </Typography>
               ),
-              subtitle: "IT Hub of India",
+              subtitle: "---------- IT Hub of India ----------",
             },
           ].map((item, i) => (
-            <Grid key={i}>
+            <Grid item xs={12} sm={6} md={4} key={i}>
               <Paper
                 elevation={3}
                 sx={{
@@ -144,7 +141,7 @@ export default function Contact() {
           ))}
         </Grid>
 
-
+        {/* Contact Form */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -159,22 +156,13 @@ export default function Contact() {
               mx: "auto",
               mb: 6,
               bgcolor: "#fcfdfd",
-              maxWidth: 600, // ✅ keeps form narrower like screenshot
+              maxWidth: 600,
             }}
           >
-            {/* Heading */}
-            <Typography
-              variant="h5"
-              fontWeight={700}
-              align="center"
-            >
-              Start Your{" "}
-              <Box component="span" sx={{ color: "#06c3e0" }}>
-                Project
-              </Box>
+            <Typography variant="h5" fontWeight={700} align="center" gutterBottom>
+              Start Your <Box component="span" sx={{ color: "#06c3e0" }}>Project</Box>
             </Typography>
 
-            {/* Subtitle */}
             <Typography
               variant="body1"
               color="text.secondary"
@@ -184,55 +172,27 @@ export default function Contact() {
               Fill out the form below and we&apos;ll get back to you shortly
             </Typography>
 
-            {/* Form */}
             <Grid container spacing={3}>
-              <Grid >
-                <TextField
-                  label="Name"
-                  fullWidth
-                  required
-                  variant="outlined"
-                />
+              <Grid item xs={12} sm={6}>
+                <TextField label="Name" fullWidth required variant="outlined" />
               </Grid>
-              <Grid >
-                <TextField
-                  label="Email"
-                  type="email"
-                  fullWidth
-                  required
-                  variant="outlined"
-                />
+              <Grid item xs={12} sm={6}>
+                <TextField label="Email" type="email" fullWidth required variant="outlined" />
               </Grid>
-              <Grid >
-                <TextField
-                  label="Phone"
-                  fullWidth
-                  required
-                  variant="outlined"
-                />
+              <Grid item xs={12} sm={6}>
+                <TextField label="Phone" fullWidth required variant="outlined" />
               </Grid>
-              <Grid >
-                <TextField
-                  label="Company Name"
-                  fullWidth
-                  variant="outlined"
-                />
+              <Grid item xs={12} sm={6}>
+                <TextField label="Company Name" fullWidth variant="outlined" />
               </Grid>
-              <Grid >
-                <TextField
-                  label="Project Details"
-                  multiline
-                  rows={4}
-                  fullWidth
-                  variant="outlined"
-                />
+              <Grid item xs={12}>
+                <TextField label="Project Details" multiline rows={4} fullWidth variant="outlined" />
               </Grid>
-              <Grid >
+              <Grid item xs={12}>
                 <Button
                   variant="contained"
                   size="large"
                   fullWidth
-                  // endIcon={<SendIcon />} // ✅ adds paper plane icon
                   sx={{
                     py: 1.4,
                     borderRadius: 2,
@@ -248,9 +208,6 @@ export default function Contact() {
             </Grid>
           </Paper>
         </motion.div>
-
-        {/* Bottom Row */}
-
       </Container>
     </Box>
   );

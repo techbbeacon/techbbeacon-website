@@ -1,7 +1,8 @@
 "use client";
 
-import { Box, Container, Grid, Typography, Card, CardMedia, CardContent } from "@mui/material";
+import { Box, Container, Typography, Card, CardMedia, CardContent } from "@mui/material";
 import { motion } from "framer-motion";
+import Grid from "@mui/material/Grid2";
 
 const portfolioItems = [
   {
@@ -61,7 +62,7 @@ export default function Portfolio() {
 
         <Grid container spacing={4}>
           {portfolioItems.map((item, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
+            <Grid xs={12} sm={6} md={4} key={index}>
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
