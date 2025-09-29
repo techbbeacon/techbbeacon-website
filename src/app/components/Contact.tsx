@@ -8,7 +8,7 @@ import {
   Typography,
   Paper,
 } from "@mui/material";
-import Grid from "@mui/material/Grid"; // ✅ correct import
+import Grid from "@mui/material/Grid";
 import { motion } from "framer-motion";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
@@ -44,8 +44,8 @@ export default function Contact() {
             color="text.secondary"
             sx={{ mb: 6, maxWidth: 700, mx: "auto" }}
           >
-            Ready to transform your business with cutting-edge technology?
-            Let’s discuss your project and create something amazing together.
+            Ready to transform your business with cutting-edge technology? Let’s
+            discuss your project and create something amazing together.
           </Typography>
         </motion.div>
 
@@ -93,7 +93,8 @@ export default function Contact() {
                   Quick Connect
                 </Button>
               ),
-              subtitle: "----------- Get instant responses to your queries. Chat with our team directly on WhatsApp. -----------",
+              subtitle:
+                "Get instant responses to your queries. Chat with our team directly on WhatsApp.",
             },
             {
               icon: <LocationOnIcon fontSize="large" sx={{ color: "#0871da" }} />,
@@ -117,7 +118,7 @@ export default function Contact() {
               subtitle: "IT Hub of India",
             },
           ].map((item, i) => (
-            <Grid xs={12} sm={6} md={4} key={i}>
+            <Grid item xs={12} sm={6} md={4} key={i}>
               <Paper
                 elevation={3}
                 sx={{
@@ -160,7 +161,10 @@ export default function Contact() {
             }}
           >
             <Typography variant="h5" fontWeight={700} align="center" gutterBottom>
-              Start Your <Box component="span" sx={{ color: "#06c3e0" }}>Project</Box>
+              Start Your{" "}
+              <Box component="span" sx={{ color: "#06c3e0" }}>
+                Project
+              </Box>
             </Typography>
 
             <Typography
@@ -173,22 +177,34 @@ export default function Contact() {
             </Typography>
 
             <Grid container spacing={3}>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField label="Name" fullWidth required variant="outlined" />
               </Grid>
-              <Grid xs={12} sm={6}>
-                <TextField label="Email" type="email" fullWidth required variant="outlined" />
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  label="Email"
+                  type="email"
+                  fullWidth
+                  required
+                  variant="outlined"
+                />
               </Grid>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField label="Phone" fullWidth required variant="outlined" />
               </Grid>
-              <Grid xs={12} sm={6}>
+              <Grid item xs={12} sm={6}>
                 <TextField label="Company" fullWidth variant="outlined" />
               </Grid>
-              <Grid xs={12}>
-                <TextField label="Project Details" multiline rows={4} fullWidth variant="outlined" />
+              <Grid item xs={12}>
+                <TextField
+                  label="Project Details"
+                  multiline
+                  rows={4}
+                  fullWidth
+                  variant="outlined"
+                />
               </Grid>
-              <Grid xs={12}>
+              <Grid item xs={12}>
                 <Button
                   variant="contained"
                   size="large"

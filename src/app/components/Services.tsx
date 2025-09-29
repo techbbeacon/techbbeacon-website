@@ -21,7 +21,12 @@ const services = [
     title: "Web Development",
     description:
       "Modern, responsive websites and\nweb applications built with\ncutting-edge technologies for your\nbusiness growth.",
-    features: ["React/Next.js", "SEO Optimized", "Fast Loading", "E-commerce Ready"],
+    features: [
+      "React/Next.js",
+      "SEO Optimized",
+      "Fast Loading",
+      "E-commerce Ready",
+    ],
   },
   {
     icon: MobileIcon,
@@ -47,7 +52,12 @@ const services = [
     title: "Hosting & Support",
     description:
       "Reliable hosting solutions with 24/7\nsupport and maintenance to keep\nyour applications running\nsmoothly.",
-    features: ["Cloud Hosting", "24/7 Support", "Regular Backups", "Performance Monitoring"],
+    features: [
+      "Cloud Hosting",
+      "24/7 Support",
+      "Regular Backups",
+      "Performance Monitoring",
+    ],
   },
 ];
 
@@ -81,14 +91,21 @@ export default function Services() {
             align="center"
             sx={{ mb: 6, maxWidth: 700, mx: "auto" }}
           >
-            Comprehensive IT solutions tailored to drive your business forward in the digital age
+            Comprehensive IT solutions tailored to drive your business forward in
+            the digital age
           </Typography>
         </motion.div>
 
         {/* Responsive Grid Cards */}
-        <Grid container spacing={10}>
+        <Grid container spacing={4}>
           {services.map((service, index) => (
-            <Grid key={index}>
+            <Grid
+              key={index}
+              item
+              xs={12}      // full width on extra-small screens
+              sm={6}       // 2 per row on tablets
+              md={3}       // 4 per row on desktops
+            >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -98,7 +115,7 @@ export default function Services() {
               >
                 <Card
                   sx={{
-                    height: "100%", // ensures equal height
+                    height: "100%",
                     borderRadius: 3,
                     textAlign: "center",
                     py: 4,
@@ -147,7 +164,6 @@ export default function Services() {
                   <Typography
                     variant="h6"
                     fontWeight={600}
-                    
                     sx={{
                       "&:hover": {
                         background: "linear-gradient(90deg,#0871da,#0cc6e9)",
@@ -171,12 +187,16 @@ export default function Services() {
                     <Typography
                       variant="body2"
                       color="text.secondary"
-                      sx={{ mb: 2, lineHeight: 1.6, whiteSpace: "pre-line" }}
+                      sx={{
+                        mb: 2,
+                        lineHeight: 1.6,
+                        whiteSpace: "pre-line",
+                      }}
                     >
                       {service.description}
                     </Typography>
 
-                    {/* Features aligned at bottom */}
+                    {/* Features */}
                     <Box
                       sx={{
                         mt: "auto",
@@ -201,7 +221,8 @@ export default function Services() {
                               height: 8,
                               borderRadius: "50%",
                               mr: 1.5,
-                              background: "linear-gradient(135deg,#0871da,#0cc6e9)",
+                              background:
+                                "linear-gradient(135deg,#0871da,#0cc6e9)",
                             }}
                           />
                           {feature}

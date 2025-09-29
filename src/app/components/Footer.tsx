@@ -18,13 +18,10 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 export default function Footer() {
-
   const quickLinks = [
     { label: "Home", href: "/" },
     { label: "About Us", href: "#about" },
     { label: "Services", href: "#services" },
-    // { label: "Packages", href: "#packages" },
-    // { label: "Portfolio", href: "#portfolio" },
     { label: "Contact", href: "#contact" },
   ];
 
@@ -33,7 +30,7 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Grid container spacing={6} justifyContent="center">
           {/* Company Info */}
-          <Grid  >
+          <Grid item xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -51,7 +48,7 @@ export default function Footer() {
           </Grid>
 
           {/* Quick Links */}
-          <Grid  >
+          <Grid item xs={12} sm={6} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -65,8 +62,8 @@ export default function Footer() {
                 <Typography
                   key={i}
                   variant="body2"
-                  component={Link}       // ✅ makes it a Next.js link
-                  href={item.href}       // ✅ correct route
+                  component={Link}
+                  href={item.href}
                   sx={{
                     display: "block",
                     cursor: "pointer",
@@ -83,7 +80,7 @@ export default function Footer() {
           </Grid>
 
           {/* Contact Info */}
-          <Grid>
+          <Grid item xs={12} sm={12} md={4}>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -94,10 +91,10 @@ export default function Footer() {
                 Contact
               </Typography>
               <Typography
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=hello@techbbeacon.com"
+                href="mailto:hello@techbbeacon.com"
                 component="a"
                 target="_blank"
-rel="noopener noreferrer"
+                rel="noopener noreferrer"
                 variant="body2"
                 sx={{ display: "flex", alignItems: "center", mb: 1 }}
               >
@@ -116,6 +113,7 @@ rel="noopener noreferrer"
                 <LocationOnIcon sx={{ mr: 1, fontSize: 18 }} /> Pune, India
               </Typography>
 
+              {/* Social Media Icons */}
               <Box sx={{ mt: 2 }}>
                 {[
                   { icon: <FacebookIcon />, href: "#" },
@@ -142,7 +140,14 @@ rel="noopener noreferrer"
         </Grid>
 
         {/* Bottom Copyright */}
-        <Box sx={{ textAlign: "center", mt: 6, borderTop: "1px solid rgba(255,255,255,0.2)", pt: 3 }}>
+        <Box
+          sx={{
+            textAlign: "center",
+            mt: 6,
+            borderTop: "1px solid rgba(255,255,255,0.2)",
+            pt: 3,
+          }}
+        >
           <Typography variant="body2">
             © {new Date().getFullYear()} Techbbeacon. All rights reserved.
           </Typography>

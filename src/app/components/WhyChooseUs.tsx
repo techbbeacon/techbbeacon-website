@@ -32,7 +32,7 @@ const StatsCard = ({ icon, value, suffix, title, subtitle, iconBg, iconColor }) 
         p: 4,
         borderRadius: 3,
         bgcolor: "#fcfcfd",
-        height: "100%", // ✅ equal height
+        height: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -61,7 +61,7 @@ const StatsCard = ({ icon, value, suffix, title, subtitle, iconBg, iconColor }) 
             sx: { color: iconColor || "#056bd1", fontSize: "2rem" },
           })}
         </Box>
-        <Typography variant="h4" fontWeight={700} color="primary" >
+        <Typography variant="h4" fontWeight={700} color="primary">
           {value}
           {suffix}
         </Typography>
@@ -124,7 +124,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <Typography variant="h3" fontWeight={700} align="center" >
+          <Typography variant="h3" fontWeight={700} align="center">
             Why Choose{" "}
             <Box
               component="span"
@@ -149,9 +149,9 @@ export default function WhyChooseUs() {
         </motion.div>
 
         {/* Content */}
-        <Grid container alignItems="center" spacing={{ xs: 2, sm: 4, md: 8, lg: 35 }}>
+        <Grid container spacing={6} alignItems="flex-start">
           {/* Left side - Reasons */}
-          <Grid >
+          <Grid item xs={12} md={6}>
             <Stack spacing={3}>
               {reasons.map((reason, index) => (
                 <motion.div
@@ -188,9 +188,9 @@ export default function WhyChooseUs() {
           </Grid>
 
           {/* Right side - Stats */}
-          <Grid >
-            <Grid container spacing={3} alignItems="stretch">
-              <Grid >
+          <Grid item xs={12} md={6}>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={6}>
                 <StatsCard
                   icon={<GppGoodOutlinedIcon />}
                   value={projectsCount}
@@ -201,7 +201,7 @@ export default function WhyChooseUs() {
                   iconColor="#056bd1"
                 />
               </Grid>
-              <Grid >
+              <Grid item xs={12} sm={6}>
                 <StatsCard
                   icon={<GroupIcon />}
                   value={clientsCount}
@@ -232,11 +232,11 @@ export default function WhyChooseUs() {
                     "linear-gradient(90deg, rgba(8,113,218,0.05), rgba(12,198,233,0.05))",
                 }}
               >
-                <Typography variant="h6" fontWeight={600} align="center" >
+                <Typography variant="h6" fontWeight={600} align="center">
                   Our Commitment
                 </Typography>
-                <Grid container spacing={10} textAlign="center">
-                  <Grid >
+                <Grid container spacing={4} textAlign="center" sx={{ mt: 2 }}>
+                  <Grid item xs={12} sm={4}>
                     <Typography variant="h5" color="primary" fontWeight={700}>
                       100%
                     </Typography>
@@ -244,7 +244,7 @@ export default function WhyChooseUs() {
                       Quality Assurance
                     </Typography>
                   </Grid>
-                  <Grid >
+                  <Grid item xs={12} sm={4}>
                     <Typography variant="h5" color="secondary" fontWeight={700}>
                       24/7
                     </Typography>
@@ -252,8 +252,8 @@ export default function WhyChooseUs() {
                       Support Available
                     </Typography>
                   </Grid>
-                  <Grid >
-                    <AllInclusiveIcon color="primary" fontWeight={800} />
+                  <Grid item xs={12} sm={4}>
+                    <AllInclusiveIcon color="primary" sx={{ fontSize: 28, mb: 1 }} />
                     <Typography variant="body2" color="text.secondary">
                       Long-term Partnership
                     </Typography>
