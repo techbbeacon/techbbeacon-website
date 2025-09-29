@@ -1,6 +1,6 @@
 "use client";
 
-import { Box, Container, Typography, Grid } from "@mui/material";
+import { Box, Container, Typography, Grid, Paper } from "@mui/material";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 import EmojiPeopleOutlinedIcon from "@mui/icons-material/EmojiPeopleOutlined";
 import LightbulbOutlinedIcon from "@mui/icons-material/LightbulbOutlined";
@@ -100,7 +100,7 @@ export default function AboutSection() {
             viewport={{ once: true }}
           >
             <Grid >
-              <Box
+              <Paper
                 elevation={0}
                 sx={{
                   p: 4, borderRadius: "12px", backgroundColor: "#f9fbfd", border: "1px solid rgba(0, 0, 0, 0.2)", marginTop: {
@@ -136,7 +136,7 @@ export default function AboutSection() {
                 <Typography variant="body2" sx={{ mb: 1 }}>
                   ✓ Latest technology stack and industry best practices
                 </Typography>
-              </Box>
+              </Paper>
             </Grid>
           </motion.div>
         </Grid>
