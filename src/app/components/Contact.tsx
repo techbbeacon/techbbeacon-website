@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState } from "react";  // ✅ import useState directly
 import {
   Box,
   Button,
@@ -7,14 +8,53 @@ import {
   TextField,
   Typography,
   Paper,
+  Grid,
+  Snackbar,
+  Alert,
 } from "@mui/material";
-import Grid from "@mui/material/Grid";
 import { motion } from "framer-motion";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import emailjs from "@emailjs/browser";
 
 export default function Contact() {
+  const formRef = useRef<HTMLFormElement>(null);
+  const [open, setOpen] = useState(false);   // ✅ useState without React.
+  const [error, setError] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!formRef.current) return;
+
+    console.log("EmailJS config", {
+      service: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      template: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      key: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+    });
+
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+      formRef.current!,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+    )
+
+      .then(
+        () => {
+          setOpen(true);
+          formRef.current?.reset();
+        },
+        (err) => {
+          console.error("EmailJS Error:", err);
+          setError(true);
+        }
+      );
+  };
+
+
+
   return (
     <Box id="contact" sx={{ py: 10, backgroundColor: "#f9fbfd" }}>
       <Container>
@@ -65,7 +105,10 @@ export default function Contact() {
                     color: "inherit",
                     textDecoration: "none",
                     fontWeight: 500,
-                    "&:hover": { color: "#0871da", textDecoration: "underline" },
+                    "&:hover": {
+                      color: "#0871da",
+                      textDecoration: "underline",
+                    },
                   }}
                 >
                   hello@techbbeacon.com
@@ -109,7 +152,10 @@ export default function Contact() {
                     color: "inherit",
                     textDecoration: "none",
                     fontWeight: 500,
-                    "&:hover": { color: "#0871da", textDecoration: "underline" },
+                    "&:hover": {
+                      color: "#0871da",
+                      textDecoration: "underline",
+                    },
                   }}
                 >
                   Pune, Maharashtra
@@ -176,54 +222,86 @@ export default function Contact() {
               Fill out the form below and we&apos;ll get back to you shortly
             </Typography>
 
-            <Grid container spacing={3}>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Name" fullWidth required variant="outlined" />
+            {/* ✅ FORM START */}
+            <form ref={formRef} onSubmit={handleSubmit}>
+              <Grid container spacing={3}>
+                <Grid item xs={12} sm={6}>
+                  <TextField name="name" label="Name" fullWidth required />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField name="email" label="Email" type="email" fullWidth required />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField name="phone" label="Phone" fullWidth />
+                </Grid>
+                <Grid item xs={12} sm={6}>
+                  <TextField name="company" label="Company" fullWidth />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField name="title" label="Subject / Title" fullWidth required />
+                </Grid>
+                <Grid item xs={12}>
+                  <TextField
+                    name="message"
+                    label="Project Details"
+                    multiline
+                    rows={4}
+                    fullWidth
+                    required
+                  />
+                </Grid>
+
+                {/* Hidden field for {{time}} */}
+                <input type="hidden" name="time" value={new Date().toLocaleString()} />
+
+                <Grid item xs={12}>
+                  <Button
+                    type="submit"
+                    variant="contained"
+                    size="large"
+                    fullWidth
+                    sx={{
+                      py: 1.4,
+                      borderRadius: 2,
+                      fontWeight: 600,
+                      textTransform: "none",
+                      fontSize: "1rem",
+                      background: "linear-gradient(90deg,#0871da,#0cc6e9)",
+                    }}
+                  >
+                    Send Message
+                  </Button>
+                </Grid>
               </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField
-                  label="Email"
-                  type="email"
-                  fullWidth
-                  required
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Phone" fullWidth required variant="outlined" />
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                <TextField label="Company" fullWidth variant="outlined" />
-              </Grid>
-              <Grid item xs={12}>
-                <TextField
-                  label="Project Details"
-                  multiline
-                  rows={4}
-                  fullWidth
-                  variant="outlined"
-                />
-              </Grid>
-              <Grid item xs={12}>
-                <Button
-                  variant="contained"
-                  size="large"
-                  fullWidth
-                  sx={{
-                    py: 1.4,
-                    borderRadius: 2,
-                    fontWeight: 600,
-                    textTransform: "none",
-                    fontSize: "1rem",
-                    background: "linear-gradient(90deg,#0871da,#0cc6e9)",
-                  }}
-                >
-                  Send Message
-                </Button>
-              </Grid>
-            </Grid>
+            </form>
+
+
+            {/* ✅ FORM END */}
           </Paper>
         </motion.div>
+
+        {/* Snackbar Notifications */}
+        <Snackbar
+          open={open}
+          autoHideDuration={4000}
+          onClose={() => setOpen(false)}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert severity="success" sx={{ width: "100%" }}>
+            Message sent successfully!
+          </Alert>
+        </Snackbar>
+
+        <Snackbar
+          open={error}
+          autoHideDuration={4000}
+          onClose={() => setError(false)}
+          anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        >
+          <Alert severity="error" sx={{ width: "100%" }}>
+            Failed to send message. Try again later.
+          </Alert>
+        </Snackbar>
       </Container>
     </Box>
   );
