@@ -104,7 +104,7 @@ const HeroSection = () => {
             { value: "100%", label: "Client Satisfaction" },
             { value: "24/7", label: "Support Available" },
           ].map((item, index) => (
-            <Grid  key={index}>
+            <Grid item key={index} xs={12} sm={3} textAlign="center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -117,7 +117,9 @@ const HeroSection = () => {
                 >
                   {item.value}
                 </Typography>
-                <Typography fontSize={{ xs: "0.9rem", md: "1rem" }}>{item.label}</Typography>
+                <Typography fontSize={{ xs: "0.9rem", md: "1rem" }}>
+                  {item.label}
+                </Typography>
               </motion.div>
             </Grid>
           ))}
