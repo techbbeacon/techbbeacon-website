@@ -114,7 +114,7 @@ export default function Footer() {
               </Typography>
 
               {/* Social Media Icons */}
-              <Box sx={{ mt: 2 }}>
+              {/* <Box sx={{ mt: 2 }}>
                 {[
                   { icon: <FacebookIcon />, href: "#" },
                   { icon: <LinkedInIcon />, href: "#" },
@@ -134,7 +134,7 @@ export default function Footer() {
                     {item.icon}
                   </IconButton>
                 ))}
-              </Box>
+              </Box> */}
             </motion.div>
           </Grid>
         </Grid>
